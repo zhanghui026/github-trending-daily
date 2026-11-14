@@ -1,6 +1,6 @@
 # GitHub Trending Daily
 
-每日自动抓取的 GitHub Trending 归档。由 Mac Mini 上的 **Alita**(OpenClaw)每天 09:00（Asia/Shanghai）调度生成并推送。
+每日自动抓取的 GitHub Trending 归档。由 Mac Mini 上的 launchd 定时任务每天 09:10（Asia/Shanghai）调度生成并推送。
 
 ## 内容
 
@@ -11,7 +11,7 @@
 ## 自动化
 
 - 抓取脚本：`github_trending.py`（requests + BeautifulSoup）
-- 调度：OpenClaw cron（`0 9 * * *`，Asia/Shanghai）
+- 调度：launchd（`com.huibot.github-trending`，每天 09:10，Asia/Shanghai），抓取失败自动重试 3 次
 - 流程：抓取 → 写入本地 → 复制进本仓库 → commit & push
 
 *（自动维护，请勿手动编辑历史归档。）*
